@@ -1,0 +1,115 @@
+.App {
+  text-align: center;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background: rgb(255, 255, 255);
+}
+
+h1 {
+  text-decoration: underline;
+}
+
+.todo {
+  margin-bottom: 50px;
+  padding: 100px;
+  width: 500px;
+  height: 80%;
+  border-radius: 25px;
+  background: -webkit-linear-gradient(
+    45deg,
+    #6db3f2 0%,
+    #3690f0 24%,
+    #3690f0 25%,
+    #1e69de 100%
+  );
+
+  input {
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid #ff7f04;
+  }
+  input:focus {
+    outline: 1px rgb(238, 255, 0);
+  }
+  .button {
+    margin: 20px;
+    border-radius: 25px;
+    border: none;
+    height: 30px;
+    border: 1px solid #ff7f04;
+    width: 90px;
+    color: #ff7c00;
+  }
+  button:hover {
+    background-color: rgb(194, 194, 194);
+    transform: scale(1.05);
+    transition: 0.5s;
+    color: wheat;
+  }
+  #display {
+    list-style: none;
+    font-size: 1.5em;
+    animation: fadeIn 2s;
+    -webkit-animation: fadeIn 2s;
+    -moz-animation: fadeIn 2s;
+    -o-animation: fadeIn 2s;
+    -ms-animation: fadeIn 2s;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-o-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  li:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+  }
+}
+
+// -------------------------------Responsive
+
+@media screen and (max-width: 700px) {
+  .todo {
+    width: 250px;
+  }
+}
