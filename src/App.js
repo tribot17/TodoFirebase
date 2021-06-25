@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./App.css";
-import "./Styles/todo.scss";
+import "./Styles/index.scss";
 
 import firebase from "firebase/app";
 import "firebase/firestore";
@@ -40,9 +40,8 @@ function SignIn() {
   };
 
   return (
-    <div>
-      <button onClick={signInWithGoogle}>Sign in with Google</button>
-      <p>salut</p>
+    <div className="login">
+      <button onClick={signInWithGoogle}>Connectez vous avec Google</button>
     </div>
   );
 }
@@ -61,7 +60,8 @@ function Todo() {
   const [todo] = useCollectionData(query, { idField: "id" });
 
   const [formValue, setFormValue] = useState("");
-
+  const user = firebase.auth().currentUser;
+  const { uid } = auth.currentUser;
   const sendTodo = async (e) => {
     e.preventDefault();
     const { uid } = auth.currentUser;
@@ -79,21 +79,26 @@ function Todo() {
     console.log(tod.id);
     todoRef.doc(tod.id).delete();
   };
+  console.log(uid);
   return (
     <>
-      <h1>ToDo List</h1>
+      <h1>ToDo List de {user.displayName}</h1>
       <div className="todo">
         <div id="display">
           {todo &&
-            todo.map((tod) => (
-              <div>
-                <li>{tod.text}</li>
-                <RiCloseCircleLine
-                  onClick={() => deleteTodo(tod)}
-                  className="delete-icon"
-                />
-              </div>
-            ))}
+            todo.map((tod) => {
+              return tod.uid === uid ? (
+                <div>
+                  <li>{tod.text}</li>
+                  <RiCloseCircleLine
+                    onClick={() => deleteTodo(tod)}
+                    className="delete-icon"
+                  />
+                </div>
+              ) : (
+                <div></div>
+              );
+            })}
         </div>
         <form onSubmit={sendTodo}>
           <input

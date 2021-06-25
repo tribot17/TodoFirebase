@@ -1,0 +1,27 @@
+.login {
+  display: grid;
+  background: linear-gradient(
+    45deg,
+    rgba(228, 239, 192, 1) 0%,
+    rgba(255, 104, 104, 1) 100%
+  );
+  width: 500px;
+  height: 500px;
+  place-items: center;
+  border-radius: 25px;
+
+  button {
+    font-size: 2em;
+    border-radius: 25px;
+    border: none;
+    width: 270px;
+    height: 250px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  button:hover {
+    color: white;
+    background-color: rgba(230, 79, 79, 0.609);
+    transition: 1s;
+  }
+}
