@@ -1,5 +1,7 @@
 .login {
+  margin: 0 auto;
   display: grid;
+  margin-top: 200px;
   background: linear-gradient(
     45deg,
     rgba(228, 239, 192, 1) 0%,
@@ -23,5 +25,37 @@
     color: white;
     background-color: rgba(230, 79, 79, 0.609);
     transition: 1s;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .login {
+    margin: 0 auto;
+    display: grid;
+    margin-top: 100px;
+    background: linear-gradient(
+      45deg,
+      rgba(228, 239, 192, 1) 0%,
+      rgba(255, 104, 104, 1) 100%
+    );
+    width: 300px;
+    height: 300px;
+    place-items: center;
+    border-radius: 25px;
+
+    button {
+      font-size: 1em;
+      border-radius: 25px;
+      border: none;
+      width: 170px;
+      height: 150px;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+    button:hover {
+      color: white;
+      background-color: rgba(230, 79, 79, 0.609);
+      transition: 1s;
+    }
   }
 }
