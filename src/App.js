@@ -1,5 +1,4 @@
-import React, { useRef, useState } from "react";
-import "./App.css";
+import React from "react";
 import "./Styles/index.scss";
 import Todo from "./components/Todo";
 

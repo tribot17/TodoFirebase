@@ -8,15 +8,7 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 import { RiCloseCircleLine } from "react-icons/ri";
 require("dotenv").config({ path: "../.env" });
 
-const {
-  REACT_APP_API_KEY,
-  REACT_APP_AUTH_DOMAIN,
-  REACT_APP_PROJECT_ID,
-  REACT_APP_STORAGE_BUCKET,
-  REACT_APP_MESSAING_SENDER_ID,
-  REACT_APP_APP_ID,
-  REACT_APP_MEASURMENT_ID,
-} = process.env;
+console.log(process.env);
 
 firebase.initializeApp({
   apiKey: process.env.REACT_APP_API_KEY,
@@ -62,15 +54,15 @@ function SignOut() {
 }
 
 function Todos() {
-  const query = todoRef.orderBy("createdAt").limit(25);
-  const [todo] = useCollectionData(query, { idField: "id" });
-
   const [formValue, setFormValue] = useState("");
   const [errorBox, setErrorBox] = useState(false);
   const [errorBoxs, setErrorBoxs] = useState(false);
   const [errorText, setErrorText] = useState(false);
+  const query = todoRef.orderBy("createdAt").limit(25);
+  const [todo] = useCollectionData(query, { idField: "id" });
   const user = firebase.auth().currentUser;
   const { uid } = auth.currentUser;
+  
 
   const addTodo = async (long) => {
     await todoRef.add({
@@ -205,7 +197,7 @@ function Todos() {
                   <div></div>
                 )
               ) : (
-                <div></div>
+                null
               );
             })}
         </div>
@@ -217,10 +209,10 @@ function Todos() {
                 tod.longeur === "moyen" ? (
                   displayTodo(tod)
                 ) : (
-                  <div></div>
+                  null
                 )
               ) : (
-                <div></div>
+                null
               );
             })}
         </div>
@@ -232,10 +224,10 @@ function Todos() {
                 tod.longeur === "long" ? (
                   displayTodo(tod)
                 ) : (
-                  <div></div>
+                  null
                 )
               ) : (
-                <div></div>
+                null
               );
             })}
         </div>
