@@ -1,0 +1,14 @@
+.footer{
+    display: flex;
+    height: 50px;
+    background-color: aquamarine;
+    .list_social{
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        width: 100%;
+        li{
+            margin: auto;
+        }
+    }
+}
